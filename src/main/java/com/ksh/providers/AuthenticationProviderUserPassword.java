@@ -21,6 +21,7 @@ public class AuthenticationProviderUserPassword implements AuthenticationProvide
     @Override
     public Publisher<AuthenticationResponse> authenticate(HttpRequest<?> httpRequest, AuthenticationRequest<?, ?> authenticationRequest) {
         return Flux.create(emitter -> {
+            System.out.println("Authentication...");
             System.out.println("Username : "+authenticationRequest.getIdentity().toString());
             System.out.println("Password : "+authenticationRequest.getSecret().toString());
 //            User user = userRepository.findByUsernameAndPassword(authenticationRequest.getIdentity().toString(), authenticationRequest.getSecret().toString());
